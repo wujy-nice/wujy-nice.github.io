@@ -1,0 +1,57 @@
+import{_ as s,o as a,c as n,S as p}from"./chunks/framework.c59ae78c.js";const h=JSON.parse('{"title":"Sitemap Generation","description":"","frontmatter":{},"headers":[],"relativePath":"guide/sitemap-generation.md","filePath":"guide/sitemap-generation.md","lastUpdated":null}'),e={name:"guide/sitemap-generation.md"},o=p(`<h1 id="sitemap-generation" tabindex="-1">Sitemap Generation <a class="header-anchor" href="#sitemap-generation" aria-label="Permalink to &quot;Sitemap Generation&quot;">​</a></h1><p>VitePress comes with out-of-the-box support for generating a <code>sitemap.xml</code> file for your site. To enable it, add the following to your <code>.vitepress/config.js</code>:</p><div class="language-ts vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#F97583;">import</span><span style="color:#E1E4E8;"> { defineConfig } </span><span style="color:#F97583;">from</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583;">export</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">default</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">defineConfig</span><span style="color:#E1E4E8;">({</span></span>
+<span class="line"><span style="color:#E1E4E8;">  sitemap: {</span></span>
+<span class="line"><span style="color:#E1E4E8;">    hostname: </span><span style="color:#9ECBFF;">&#39;https://example.com&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8;">  }</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#D73A49;">import</span><span style="color:#24292E;"> { defineConfig } </span><span style="color:#D73A49;">from</span><span style="color:#24292E;"> </span><span style="color:#032F62;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">export</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">default</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">defineConfig</span><span style="color:#24292E;">({</span></span>
+<span class="line"><span style="color:#24292E;">  sitemap: {</span></span>
+<span class="line"><span style="color:#24292E;">    hostname: </span><span style="color:#032F62;">&#39;https://example.com&#39;</span></span>
+<span class="line"><span style="color:#24292E;">  }</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span></code></pre></div><p>To have <code>&lt;lastmod&gt;</code> tags in your <code>sitemap.xml</code>, you can enable the <a href="./../reference/default-theme-last-updated"><code>lastUpdated</code></a> option.</p><h2 id="options" tabindex="-1">Options <a class="header-anchor" href="#options" aria-label="Permalink to &quot;Options&quot;">​</a></h2><p>Sitemap support is powered by the <a href="https://www.npmjs.com/package/sitemap" target="_blank" rel="noreferrer"><code>sitemap</code></a> module. You can pass any options supported by it to the <code>sitemap</code> option in your config file. These will be passed directly to the <code>SitemapStream</code> constructor. Refer to the <a href="https://www.npmjs.com/package/sitemap#options-you-can-pass" target="_blank" rel="noreferrer"><code>sitemap</code> documentation</a> for more details. Example:</p><div class="language-ts vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#F97583;">import</span><span style="color:#E1E4E8;"> { defineConfig } </span><span style="color:#F97583;">from</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583;">export</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">default</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">defineConfig</span><span style="color:#E1E4E8;">({</span></span>
+<span class="line"><span style="color:#E1E4E8;">  sitemap: {</span></span>
+<span class="line"><span style="color:#E1E4E8;">    hostname: </span><span style="color:#9ECBFF;">&#39;https://example.com&#39;</span><span style="color:#E1E4E8;">,</span></span>
+<span class="line"><span style="color:#E1E4E8;">    lastmodDateOnly: </span><span style="color:#79B8FF;">false</span></span>
+<span class="line"><span style="color:#E1E4E8;">  }</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#D73A49;">import</span><span style="color:#24292E;"> { defineConfig } </span><span style="color:#D73A49;">from</span><span style="color:#24292E;"> </span><span style="color:#032F62;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">export</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">default</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">defineConfig</span><span style="color:#24292E;">({</span></span>
+<span class="line"><span style="color:#24292E;">  sitemap: {</span></span>
+<span class="line"><span style="color:#24292E;">    hostname: </span><span style="color:#032F62;">&#39;https://example.com&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">    lastmodDateOnly: </span><span style="color:#005CC5;">false</span></span>
+<span class="line"><span style="color:#24292E;">  }</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span></code></pre></div><h2 id="transformitems-hook" tabindex="-1"><code>transformItems</code> Hook <a class="header-anchor" href="#transformitems-hook" aria-label="Permalink to &quot;\`transformItems\` Hook&quot;">​</a></h2><p>You can use the <code>sitemap.transformItems</code> hook to modify the sitemap items before they are written to the <code>sitemap.xml</code> file. This hook is called with an array of sitemap items and expects an array of sitemap items to be returned. Example:</p><div class="language-ts vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#F97583;">import</span><span style="color:#E1E4E8;"> { defineConfig } </span><span style="color:#F97583;">from</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583;">export</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">default</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">defineConfig</span><span style="color:#E1E4E8;">({</span></span>
+<span class="line"><span style="color:#E1E4E8;">  sitemap: {</span></span>
+<span class="line"><span style="color:#E1E4E8;">    hostname: </span><span style="color:#9ECBFF;">&#39;https://example.com&#39;</span><span style="color:#E1E4E8;">,</span></span>
+<span class="line"><span style="color:#E1E4E8;">    </span><span style="color:#B392F0;">transformItems</span><span style="color:#E1E4E8;">: (</span><span style="color:#FFAB70;">items</span><span style="color:#E1E4E8;">) </span><span style="color:#F97583;">=&gt;</span><span style="color:#E1E4E8;"> {</span></span>
+<span class="line"><span style="color:#E1E4E8;">      </span><span style="color:#6A737D;">// add new items or modify/filter existing items</span></span>
+<span class="line"><span style="color:#E1E4E8;">      items.</span><span style="color:#B392F0;">push</span><span style="color:#E1E4E8;">({</span></span>
+<span class="line"><span style="color:#E1E4E8;">        url: </span><span style="color:#9ECBFF;">&#39;/extra-page&#39;</span><span style="color:#E1E4E8;">,</span></span>
+<span class="line"><span style="color:#E1E4E8;">        changefreq: </span><span style="color:#9ECBFF;">&#39;monthly&#39;</span><span style="color:#E1E4E8;">,</span></span>
+<span class="line"><span style="color:#E1E4E8;">        priority: </span><span style="color:#79B8FF;">0.8</span></span>
+<span class="line"><span style="color:#E1E4E8;">      })</span></span>
+<span class="line"><span style="color:#E1E4E8;">      </span><span style="color:#F97583;">return</span><span style="color:#E1E4E8;"> items</span></span>
+<span class="line"><span style="color:#E1E4E8;">    }</span></span>
+<span class="line"><span style="color:#E1E4E8;">  }</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#D73A49;">import</span><span style="color:#24292E;"> { defineConfig } </span><span style="color:#D73A49;">from</span><span style="color:#24292E;"> </span><span style="color:#032F62;">&#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">export</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">default</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">defineConfig</span><span style="color:#24292E;">({</span></span>
+<span class="line"><span style="color:#24292E;">  sitemap: {</span></span>
+<span class="line"><span style="color:#24292E;">    hostname: </span><span style="color:#032F62;">&#39;https://example.com&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">    </span><span style="color:#6F42C1;">transformItems</span><span style="color:#24292E;">: (</span><span style="color:#E36209;">items</span><span style="color:#24292E;">) </span><span style="color:#D73A49;">=&gt;</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#24292E;">      </span><span style="color:#6A737D;">// add new items or modify/filter existing items</span></span>
+<span class="line"><span style="color:#24292E;">      items.</span><span style="color:#6F42C1;">push</span><span style="color:#24292E;">({</span></span>
+<span class="line"><span style="color:#24292E;">        url: </span><span style="color:#032F62;">&#39;/extra-page&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">        changefreq: </span><span style="color:#032F62;">&#39;monthly&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">        priority: </span><span style="color:#005CC5;">0.8</span></span>
+<span class="line"><span style="color:#24292E;">      })</span></span>
+<span class="line"><span style="color:#24292E;">      </span><span style="color:#D73A49;">return</span><span style="color:#24292E;"> items</span></span>
+<span class="line"><span style="color:#24292E;">    }</span></span>
+<span class="line"><span style="color:#24292E;">  }</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span></code></pre></div>`,10),l=[o];function t(c,r,i,E,y,d){return a(),n("div",null,l)}const f=s(e,[["render",t]]);export{h as __pageData,f as default};
